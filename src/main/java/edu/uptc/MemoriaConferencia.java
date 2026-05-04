@@ -50,8 +50,6 @@ public class MemoriaConferencia extends DocumentoAcademico {
 
     @Override
     public String toString() {
-        return "MemoriaConferencia{" +
-                "nombreCompletoConferencia='" + nombreCompletoConferencia + '\'' +
-                "}\n";
+        return "ID: " + idDocumentoAcademico + " | Conferencia: " + tituloDocumento + "\n";
     }
 }

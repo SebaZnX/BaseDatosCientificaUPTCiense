@@ -39,8 +39,6 @@ public class LibroAcademico extends DocumentoAcademico {
 
     @Override
     public String toString() {
-        return "LibroAcademico{" +
-                "editorial='" + editorial + '\'' +
-                "}\n";
+        return "ID: " + idDocumentoAcademico + " | Libro: " + tituloDocumento + "\n";
     }
 }

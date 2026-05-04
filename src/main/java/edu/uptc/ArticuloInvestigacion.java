@@ -60,7 +60,6 @@ public class ArticuloInvestigacion extends DocumentoAcademico {
 
     @Override
     public String toString() {
-        return "ArticuloInvestivgacion{" +
-                "tituloRevista='" + tituloRevista + "}\n";
+        return "ID: " + idDocumentoAcademico + " | Artículo: " + tituloDocumento + "\n";
     }
 }

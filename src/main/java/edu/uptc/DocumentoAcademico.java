@@ -51,11 +51,5 @@ public class DocumentoAcademico {
         this.inicialesyApellidosAutor = inicialesyApellidosAutor;
     }
 
-    @Override
-    public String toString() {
-        return "DocumentoAcademico{" +
-                "idDocumentoAcademico='" + idDocumentoAcademico + '\'' +
-                ", tituloDocumento='" + tituloDocumento + '\'' +
-                "}\n";
-    }
+
 }
