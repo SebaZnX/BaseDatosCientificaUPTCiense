@@ -200,12 +200,13 @@ public class Application {
                     String tituloBuscar = JOptionPane.showInputDialog("Ingrese un titulo de su interes");
                     String idGenerar = JOptionPane.showInputDialog("Documentos academicos con titulo " +
                             tituloBuscar + "\n" + gestionSistema.buscarPorTituloId(tituloBuscar) +
-                            "\nINGRESE EL ID A SACAR REFERENCIA\n" + "PRESIONE 0 PARA SALIR" );
+                            "\nINGRESE EL ID A SACAR REFERENCIA\n" + "PRESIONE 0 PARA SALIR");
                     if (idGenerar.equals("0") || idGenerar.equals(null)) {
                         break;
                     } else {
                         String refenciaBibliografica = gestionSistema.generarReferenciaBibliografica(idGenerar);
-                        JOptionPane.showMessageDialog(null, "REFENCIA BIBLIOGRAFICA\n" + refenciaBibliografica);
+                        JOptionPane.showMessageDialog(null, "REFENCIA BIBLIOGRAFICA\n" +
+                                "<html> <i>" + refenciaBibliografica + " </i> </html>");
                     }
                     break;
 
