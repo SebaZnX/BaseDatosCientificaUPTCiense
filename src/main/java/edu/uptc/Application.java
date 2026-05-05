@@ -197,18 +197,19 @@ public class Application {
                     }
                     break;
                 case 5:
-                    int opGenerarRefenciaBibliografica = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la refencia bibliografica a generar\n" + menuDocumentos));
-                    switch (opGenerarRefenciaBibliografica) {
-                        case 1:
-                            break;
-                        case 2:
-                            break;
-                        case 3:
-                            break;
-                        default:
-                            break;
+                    String tituloBuscar = JOptionPane.showInputDialog("Ingrese un titulo de su interes");
+                    String idGenerar = JOptionPane.showInputDialog("Documentos academicos con titulo " +
+                            tituloBuscar + "\n" + gestionSistema.buscarPorTituloId(tituloBuscar) +
+                            "\nINGRESE EL ID A SACAR REFERENCIA\n" + "PRESIONE 0 PARA SALIR" );
+                    if (idGenerar.equals("0") || idGenerar.equals(null)) {
+                        break;
+                    } else {
+                        String refenciaBibliografica = gestionSistema.generarReferenciaBibliografica(idGenerar);
+                        JOptionPane.showMessageDialog(null, "REFENCIA BIBLIOGRAFICA\n" + refenciaBibliografica);
                     }
                     break;
+
+
                 default:
                     break;
             }

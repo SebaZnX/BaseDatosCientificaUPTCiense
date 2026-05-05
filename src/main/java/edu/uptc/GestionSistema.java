@@ -1,6 +1,8 @@
 package edu.uptc;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class GestionSistema {
     private HashMap<String, ArticuloInvestigacion> articulosInvestigacion;
@@ -156,6 +158,72 @@ public class GestionSistema {
         } else {
             return 0;
         }
+    }
+
+
+    public List<DocumentoAcademico> buscarPorTituloId(String palabraBuscado) {
+        List<DocumentoAcademico> resultadosGlobales = new ArrayList<>();
+        String palabraBuscadaMinuscula = palabraBuscado.toLowerCase();
+
+        for (ArticuloInvestigacion articuloInvestigacion : articulosInvestigacion.values()) {
+            if (articuloInvestigacion.getTituloDocumento().toLowerCase().contains(palabraBuscadaMinuscula)) {
+                resultadosGlobales.add(articuloInvestigacion);
+            }
+        }
+        for (LibroAcademico libroAcademico : librosAcademicos.values()) {
+            if (libroAcademico.getTituloDocumento().toLowerCase().contains(palabraBuscadaMinuscula)) {
+                resultadosGlobales.add(libroAcademico);
+            }
+        }
+
+        for (MemoriaConferencia memoriaConferencia : memoriasConferencias.values()) {
+            if (memoriaConferencia.getTituloDocumento().toLowerCase().contains(palabraBuscadaMinuscula)) {
+                resultadosGlobales.add(memoriaConferencia);
+            }
+        }
+        return resultadosGlobales;
+    }
+
+    public String generarReferenciaBibliografica(String idDocumentoAcademico) {
+        int tipoDocumento = asignacionParaActualizar(idDocumentoAcademico);
+        StringBuilder referenciaBibliografica = new StringBuilder();
+
+        switch (tipoDocumento) {
+            case 1:
+                ArticuloInvestigacion articuloInvestigacion = articulosInvestigacion.get(idDocumentoAcademico);
+                referenciaBibliografica.append(articuloInvestigacion.getInicialesyApellidosAutor()).append(", ");
+                referenciaBibliografica.append('"').append(articuloInvestigacion.getTituloDocumento()).append('"').append(", ");
+                referenciaBibliografica.append(articuloInvestigacion.getTituloRevista()).append(", ");
+                referenciaBibliografica.append("vol. ").append(articuloInvestigacion.getVolumen()).append(", ");
+                referenciaBibliografica.append("no. ").append(articuloInvestigacion.getNumero()).append(", ");
+                referenciaBibliografica.append("pp. ").append(articuloInvestigacion.getPaginas()).append(", ");
+                referenciaBibliografica.append(articuloInvestigacion.getMes()).append(' ').
+                        append(articuloInvestigacion.getAnhoPubliacion()).append('.');
+                break;
+            case 2:
+                LibroAcademico libroAcademico = librosAcademicos.get(idDocumentoAcademico);
+                referenciaBibliografica.append(libroAcademico.getInicialesyApellidosAutor()).append(", ");
+                referenciaBibliografica.append(libroAcademico.getTituloDocumento()).append(". ");
+                referenciaBibliografica.append(libroAcademico.getEdicion()).append(". ");
+                referenciaBibliografica.append(libroAcademico.getLugarPublicacion()).append(": ");
+                referenciaBibliografica.append(libroAcademico.getEditorial()).append(", ");
+                referenciaBibliografica.append(libroAcademico.getAnhoPubliacion()).append(".");
+                break;
+            case 3:
+                MemoriaConferencia memoriaConferencia = memoriasConferencias.get(idDocumentoAcademico);
+                referenciaBibliografica.append(memoriaConferencia.getInicialesyApellidosAutor()).append(", ");
+                referenciaBibliografica.append('"').append(memoriaConferencia.getTituloDocumento()).append('"').append(" in ");
+                referenciaBibliografica.append(memoriaConferencia.getNombreCompletoConferencia()).append(", ");
+                referenciaBibliografica.append(memoriaConferencia.getCiudadConferencia()).append(", ");
+                referenciaBibliografica.append(memoriaConferencia.getEstadoConferencia()).append(", ");
+                referenciaBibliografica.append(memoriaConferencia.getAnhoPubliacion()).append(", ");
+                referenciaBibliografica.append("pp. ").append(memoriaConferencia.getPaginas()).append(".");
+                break;
+
+            default:
+                break;
+        }
+        return referenciaBibliografica.toString();
     }
 }
 
