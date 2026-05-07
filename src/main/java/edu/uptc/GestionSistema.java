@@ -212,7 +212,8 @@ public class GestionSistema {
             case 3:
                 MemoriaConferencia memoriaConferencia = memoriasConferencias.get(idDocumentoAcademico);
                 referenciaBibliografica.append(memoriaConferencia.getInicialesyApellidosAutor()).append(", ");
-                referenciaBibliografica.append('"').append(memoriaConferencia.getTituloDocumento()).append('"').append(" in ");
+                referenciaBibliografica.append('"').append(memoriaConferencia.getTituloDocumento()).append('"').
+                        append(" in ");
                 referenciaBibliografica.append(memoriaConferencia.getNombreCompletoConferencia()).append(", ");
                 referenciaBibliografica.append(memoriaConferencia.getCiudadConferencia()).append(", ");
                 referenciaBibliografica.append(memoriaConferencia.getEstadoConferencia()).append(", ");
@@ -223,7 +224,7 @@ public class GestionSistema {
             default:
                 break;
         }
-        return referenciaBibliografica.toString();
+        return  referenciaBibliografica.toString();
     }
 }
 
