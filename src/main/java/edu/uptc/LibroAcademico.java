@@ -39,6 +39,11 @@ public class LibroAcademico extends DocumentoAcademico {
 
     @Override
     public String toString() {
-        return "ID: " + idDocumentoAcademico + " | Libro: " + tituloDocumento + "\n";
+        final StringBuilder sb = new StringBuilder("LibroAcademico{");
+        sb.append("edicion='").append(edicion).append('\'');
+        sb.append(", lugarPublicacion='").append(lugarPublicacion).append('\'');
+        sb.append(", editorial='").append(editorial).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 }

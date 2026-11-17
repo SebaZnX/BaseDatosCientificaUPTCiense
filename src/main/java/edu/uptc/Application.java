@@ -7,7 +7,7 @@ public class Application {
     public static void main(String[] args) {
         GestionSistema gestionSistema = new GestionSistema();
 
-        System.out.println("HOLA");
+
         String menuPrincipal = """
                 -------------------------------------
                 --------------UPTCiense--------------
@@ -17,6 +17,10 @@ public class Application {
                 4. Eliminar un documento academico.
                 5. Generar referencia bibliografica
                 6. Salir.
+                
+                
+                
+                10,asjdasdasjd
                 -------------------------------------
                 """;
         String menuDocumentos = """
@@ -24,6 +28,8 @@ public class Application {
                 1. Articulo cientifico
                 2. Libros academicos
                 3. Memorias de conferencia
+                
+                asdsaasdasd
                 -------------------------------------
                 """;
 
