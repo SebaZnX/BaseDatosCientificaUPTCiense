@@ -7,6 +7,7 @@ public class Application {
     public static void main(String[] args) {
         GestionSistema gestionSistema = new GestionSistema();
 
+        System.out.println("HOLA");
         String menuPrincipal = """
                 -------------------------------------
                 --------------UPTCiense--------------
